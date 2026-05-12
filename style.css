@@ -623,3 +623,13 @@ button {
 .toolbox-item {
   min-height: 46px !important;
 }
+
+
+/* v8 menu name + feedback menu item */
+.toolbox-list {
+  gap: 8px !important;
+}
+
+.toolbox-item {
+  min-height: 46px !important;
+}
