@@ -482,3 +482,134 @@ button {
     white-space: normal;
   }
 }
+
+
+/* v5 Toolbox collapsed menu */
+.side-toolbar {
+  display: none !important;
+}
+
+.toolbox {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.toolbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toolbox.open .toolbox-list {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.toolbox-item {
+  width: 176px;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #dbe4ef;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.toolbox-item:hover {
+  transform: translateX(-3px);
+  border-color: #111827;
+  color: #111827;
+}
+
+.toolbox-item.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+  font-weight: 500;
+}
+
+.toolbox-item.active:hover {
+  color: #fff;
+}
+
+.toolbox-icon {
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  flex: 0 0 auto;
+}
+
+.toolbox-toggle {
+  height: 48px;
+  min-width: 136px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.24);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.toolbox-toggle:hover {
+  transform: translateY(-2px);
+  background: #020617;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.28);
+}
+
+.toolbox.open .toolbox-toggle {
+  background: #111827;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.24);
+}
+
+.toolbox-toggle-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .toolbox {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .toolbox-item {
+    width: 158px;
+    min-height: 44px;
+    font-size: 12px;
+  }
+
+  .toolbox-toggle {
+    height: 44px;
+    min-width: 120px;
+    font-size: 13px;
+  }
+}

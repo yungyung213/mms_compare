@@ -95,25 +95,32 @@
       <button type="button" class="secondary-btn" id="resetBtn">새로쓰기</button>
     </div>
   </main>
+<script src="https://unpkg.com/diff-match-patch/index.js"></script>
+  <script src="script.js" defer></script>
 
-  <nav class="side-toolbar" aria-label="도구 메뉴">
-    <a href="https://yungyung213.github.io/kakao_preview/mms-compare/" class="tool-item active">
-      <span class="tool-icon">⚖️</span>
-      <span class="tool-text">MMS<br>비교하기</span>
-    </a>
+  <div class="toolbox" id="toolbox">
+    <div class="toolbox-list" aria-label="바로가기 메뉴">
+      <a href="https://yungyung213.github.io/kakao_preview/" class="toolbox-item">
+        <span class="toolbox-icon">💬</span>
+        <span>카카오 미리보기</span>
+      </a>
 
-    <a href="https://yungyung213.github.io/kakao_preview/sms-preview/" class="tool-item">
-      <span class="tool-icon">📱</span>
-      <span class="tool-text">문자<br>미리보기</span>
-    </a>
+      <a href="https://yungyung213.github.io/mms_compare/" class="toolbox-item active">
+        <span class="toolbox-icon">🔎</span>
+        <span>텍스트 비교기</span>
+      </a>
 
-    <a href="https://yungyung213.github.io/kakao_preview/transparent-check/" class="tool-item">
-      <span class="tool-icon">▧</span>
-      <span class="tool-text">투명/깨짐<br>체크</span>
-    </a>
-  </nav>
+      <a href="https://yungyung213.github.io/sms_preview/" class="toolbox-item">
+        <span class="toolbox-icon">📱</span>
+        <span>MMS 미리보기</span>
+      </a>
+    </div>
 
-  <script src="https://unpkg.com/diff-match-patch/index.js"></script>
-  <script src="script.js"></script>
+    <button type="button" class="toolbox-toggle" id="toolboxToggle" aria-expanded="false">
+      <span class="toolbox-toggle-icon">☰</span>
+      <span>Toolbox</span>
+    </button>
+  </div>
+
 </body>
 </html>
