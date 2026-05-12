@@ -1,0 +1,484 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #eef3f9;
+  color: #0f172a;
+}
+
+.page {
+  width: min(1180px, calc(100% - 160px));
+  margin: 0 auto;
+  padding: 48px 0 56px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+}
+
+.description {
+  margin: 12px auto 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.guide-card {
+  background: #fff;
+  border: 1px solid #dbe4ef;
+  border-radius: 20px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.guide-title {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.guide-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.sample {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.example {
+  margin-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 14px;
+}
+
+.example summary {
+  cursor: pointer;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.example-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.example-block {
+  background: #f8fafc;
+  border: 1px solid #e5edf5;
+  border-radius: 14px;
+  padding: 16px;
+  color: #111827;
+}
+
+.example-block strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.example-block p {
+  margin: 0;
+  white-space: pre-wrap;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.editor-card {
+  background: #fff;
+  border: 1px solid #dbe4ef;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.editor-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.editor-head h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+}
+
+.editor-head span {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.editor {
+  min-height: 360px;
+  max-height: 520px;
+  overflow-y: auto;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #fbfdff;
+  padding: 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.editor:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.editor:empty::before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px 0 0;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.primary-btn,
+.secondary-btn {
+  height: 48px;
+  min-width: 132px;
+  border-radius: 14px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 900;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.primary-btn {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.26);
+}
+
+.secondary-btn {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.secondary-btn:hover {
+  background: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+/* 결과 표시 */
+.replaced {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.added-block {
+  background-color: #fef3c7;
+  color: #111827;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.deleted {
+  background: #ffe4ea;
+  color: #111827 !important;
+  text-decoration: line-through;
+  text-decoration-color: #111827;
+  padding: 1px 3px;
+  border-radius: 4px;
+}
+
+/* 우측 사이드 툴바 */
+.side-toolbar {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 82px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+  color: #64748b;
+  text-decoration: none;
+  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s, color 0.22s;
+}
+
+.tool-item:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.tool-item.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.tool-icon {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.tool-text {
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  word-break: keep-all;
+}
+
+@media (max-width: 1180px) {
+  .page {
+    width: calc(100% - 32px);
+    padding-right: 92px;
+  }
+
+  .guide-list,
+  .editor-grid,
+  .example-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: calc(100% - 24px);
+    padding: 28px 0 32px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .side-toolbar {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto 24px;
+    order: 10;
+  }
+
+  .tool-item {
+    width: 82px;
+    height: 74px;
+  }
+}
+
+
+/* v3 slim guide bar */
+.guide-card {
+  display: none !important;
+}
+
+.guide-bar {
+  background: #fff;
+  border: 1px solid #dbe4ef;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  padding: 0;
+  overflow: hidden;
+}
+
+.guide-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.4;
+  flex-wrap: wrap;
+}
+
+.guide-left strong {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 900;
+  margin-right: 2px;
+}
+
+.guide-left span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.guide-left .sample {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.guide-bar .example {
+  margin: 0 !important;
+  border-top: 1px solid #e5e7eb !important;
+  padding: 0 !important;
+}
+
+.guide-bar .example summary {
+  position: absolute;
+  right: calc((100vw - min(1180px, calc(100% - 160px))) / 2 + 18px);
+  transform: translateY(-43px);
+  cursor: pointer;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+  list-style: none;
+}
+
+.guide-bar .example summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-bar .example[open] summary {
+  background: #111827;
+  color: #fff;
+}
+
+.guide-bar .example-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 16px 18px 18px;
+  margin: 0;
+}
+
+.guide-bar .example-block {
+  background: #f8fafc;
+  border: 1px solid #e5edf5;
+  border-radius: 14px;
+  padding: 16px;
+  min-height: 0;
+  box-shadow: none;
+  color: #111827;
+}
+
+.guide-bar .example-block strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.guide-bar .example-block p,
+.guide-bar .example-block {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.editor-grid {
+  margin-top: 18px !important;
+}
+
+@media (max-width: 1180px) {
+  .guide-bar .example summary {
+    position: static;
+    transform: none;
+    margin: 0 18px 14px;
+    width: fit-content;
+  }
+
+  .guide-bar .example-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .guide-left {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .guide-left span {
+    white-space: normal;
+  }
+}
