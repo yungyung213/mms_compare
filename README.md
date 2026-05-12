@@ -1,4 +1,5 @@
-MMS 텍스트 비교기 v6
+MMS 텍스트 비교기 v7 Feedback
 
-Toolbox 메뉴 펼침 동작을 DOMContentLoaded 기준으로 재정리했습니다. script.js는 defer로 로드됩니다.
+Toolbox에 Tally 피드백 링크를 추가했습니다.
+Tally URL: https://tally.so/r/q4oN9d
 업로드 파일: index.html, style.css, script.js

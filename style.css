@@ -613,3 +613,13 @@ button {
     font-size: 13px;
   }
 }
+
+
+/* feedback menu item */
+.toolbox-list {
+  gap: 8px !important;
+}
+
+.toolbox-item {
+  min-height: 46px !important;
+}
